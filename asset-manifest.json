@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Retro-Lotek/static/css/main.9c8086f7.chunk.css",
+    "main.js": "/Retro-Lotek/static/js/main.919d179a.chunk.js",
+    "main.js.map": "/Retro-Lotek/static/js/main.919d179a.chunk.js.map",
+    "runtime-main.js": "/Retro-Lotek/static/js/runtime-main.2c96b6fa.js",
+    "runtime-main.js.map": "/Retro-Lotek/static/js/runtime-main.2c96b6fa.js.map",
+    "static/js/2.8e6d0463.chunk.js": "/Retro-Lotek/static/js/2.8e6d0463.chunk.js",
+    "static/js/2.8e6d0463.chunk.js.map": "/Retro-Lotek/static/js/2.8e6d0463.chunk.js.map",
+    "index.html": "/Retro-Lotek/index.html",
+    "static/css/main.9c8086f7.chunk.css.map": "/Retro-Lotek/static/css/main.9c8086f7.chunk.css.map",
+    "static/js/2.8e6d0463.chunk.js.LICENSE.txt": "/Retro-Lotek/static/js/2.8e6d0463.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c96b6fa.js",
+    "static/js/2.8e6d0463.chunk.js",
+    "static/css/main.9c8086f7.chunk.css",
+    "static/js/main.919d179a.chunk.js"
+  ]
+}
