@@ -137,8 +137,8 @@ const App = () => {
       <main>
         <Display drawedNumbers={drawedNumbers} />
         <Coupon numbers={numbers} add={addPlayerNumbers} />
-        <ButtonStart playerNumbers={playerNumbers} start={startDraw} />
         <Results games={gamesNumber} hits={hits} money={money} />
+        <ButtonStart playerNumbers={playerNumbers} start={startDraw} />
       </main>
     </div>
   );
