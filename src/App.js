@@ -6,6 +6,7 @@ import Results from "./Results";
 import Coupon from "./Coupon";
 import ButtonStart from "./ButtonStart";
 import Display from "./Display";
+import ButtonReset from "./ButtonReset";
 
 const App = () => {
   const numbers = [
@@ -130,15 +131,28 @@ const App = () => {
       checkWin(playerNumbers, drawedNumbers);
     }
   };
+  const resetGame = () => {
+    const selectedNumbers = [...document.querySelectorAll(".selected")];
+    selectedNumbers.forEach((num) => num.classList.remove("selected"));
+    setPlayerNumbers([]);
+    setDrawedNumbers([]);
+    setGamesNumber(0);
+    setHits(0);
+    setMoney(0);
+  };
 
   return (
     <div className="app">
       <Header />
+
       <main>
         <Display drawedNumbers={drawedNumbers} />
         <Coupon numbers={numbers} add={addPlayerNumbers} />
         <Results games={gamesNumber} hits={hits} money={money} />
-        <ButtonStart playerNumbers={playerNumbers} start={startDraw} />
+        <section className="controls">
+          <ButtonReset reset={resetGame} />
+          <ButtonStart playerNumbers={playerNumbers} start={startDraw} />
+        </section>
       </main>
     </div>
   );

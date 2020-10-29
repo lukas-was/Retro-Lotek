@@ -12,76 +12,85 @@ html {
   padding: 0;
   font-family: "Righteous", cursive;
   box-sizing: border-box;
-  text-align: center;
   user-select: none;
 }
+body {
+  background-color: var(--mainBgc);
+}
 div.app {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   overflow: hidden;
 }
 header {
-  height: 10vh;
+  flex-basis: 10vh;
   line-height: 10vh;
+  text-align: center;
   letter-spacing: 1px;
   background-color: var(--headerBgc);
   color: var(--couponBgc);
+  border-radius: 0 0 10px 10px;
   border-bottom: 3px solid var(--couponBgc);
 }
 main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
   background-color: var(--mainBgc);
-  height: 90vh;
-  padding-top: 10px;
 }
-main div.display {
-  position: relative;
+div.display {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   height: 10vh;
-  line-height: 10vh;
+  text-align: center;
   font-size: 25px;
   background-color: var(--displayBgc);
+  margin-top: 10px;
 }
 
 div.ball {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   bottom: 250%;
   width: 50px;
   height: 50px;
+  border: 2px solid rgb(48, 48, 48);
   border-radius: 50%;
   font-size: 30px;
-  line-height: 50px;
   background-color: var(--ballBgc);
   color: rgb(48, 48, 48);
-  cursor: pointer;
+  transition: background-color 0.2s;
+  transform: translateY(-30vh);
   animation: ballFalls 0.6s both;
-  transition: transform 0.5s;
 }
 @keyframes ballFalls {
   100% {
-    bottom: calc((100% - 50px) / 2);
+    transform: translateY(0);
   }
-}
-
-div.ball:nth-of-type(1) {
-  left: calc((100vw - 300px) / 7);
 }
 div.ball:nth-of-type(2) {
   animation-delay: 0.5s;
-  left: calc(((100vw - 300px) / 7) * 2 + 50px);
 }
 div.ball:nth-of-type(3) {
   animation-delay: 0.3s;
-  left: calc(((100vw - 300px) / 7) * 3 + 100px);
 }
 div.ball:nth-of-type(4) {
   animation-delay: 0.4s;
-  left: calc(((100vw - 300px) / 7) * 4 + 150px);
 }
 div.ball:nth-of-type(5) {
   animation-delay: 0.2s;
-  left: calc(((100vw - 300px) / 7) * 5 + 200px);
 }
 div.ball:nth-of-type(6) {
   animation-delay: 0.3s;
-  left: calc(((100vw - 300px) / 7) * 6 + 250px);
 }
 .coupon {
   display: flex;
@@ -90,6 +99,7 @@ div.ball:nth-of-type(6) {
   align-content: space-around;
   margin: 20px auto;
   width: 90vw;
+  max-width: 500px;
   height: 200px;
   padding: 5px;
   background-color: var(--couponBgc);
@@ -121,6 +131,11 @@ section.results {
 }
 .results .info {
   margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 1px 1px 10px 10px;
+  border-bottom: 2px solid var(--couponBorder);
+  background-color: #f88f53;
+  opacity: 0.9;
 }
 .results .games,
 .results .wallet,
@@ -131,65 +146,85 @@ section.results {
   margin-bottom: 5px;
   border-bottom: 2px dashed #8a8c3b;
 }
+.controls {
+  margin: 0 auto;
+}
 
 button {
-  /* position: absolute; */
-  /* bottom: 6vh; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   border-style: none;
   border-radius: 3px;
   outline: none;
-  margin-top: 15px;
+  margin: 20px 10px;
   padding: 10px;
   text-transform: uppercase;
+  text-shadow: 0 0 2px black;
   font-size: 15px;
   cursor: pointer;
-  background-color: var(--buttonBgc);
   color: white;
-  /* opacity: 0; */
-  /* animation: moveBtn 0.6s both; */
-  /* transition: background-color 0.5s, letter-spacing 0.5s; */
   transition: 0.5s;
+  animation: appearBtn 0.5s both;
 }
-/* @keyframes moveBtn {
-  100% {
-    opacity: 100%;
-    left: 50%;
-  }
+button.start {
+  background-color: var(--headerBgc);
+}
+button.reset {
+  background-color: var(--couponBorder);
+}
+button.off {
+  opacity: 0.5;
+  background-color: gray;
 }
 
-@media (max-height: 567px) {
-  .app {
-    min-height: 200vh;
-  }
-  main {
-    height: 190vh;
-  }
+@media (orientation: landscape) {
   header {
-    height: 20vh;
+    flex-basis: 20vh;
     line-height: 20vh;
   }
-  main div.display {
+  div.display {
     height: 20vh;
   }
-  button {
-    bottom: -80vh;
+  div.ball {
+    width: 60px;
+    height: 60px;
   }
-} */
-@media (min-width: 640px) {
   .coupon {
-    width: 50vw;
+    width: 60vw;
   }
   section.results {
     width: 50vw;
   }
-  button:hover {
-    background-color: var(--ballBgc);
-    letter-spacing: 1px;
+}
+@media (min-width: 1024px) {
+  body {
+    background-image: url(./images/morocco-blue.png);
+  }
+  div.app {
+    width: 80vw;
+    max-width: 1025px;
+    margin: 0 auto;
+  }
+  header {
+    flex-basis: 10vh;
+    line-height: 10vh;
+    opacity: 0.97;
+  }
+  main {
+    border-radius: 10px 10px 0 0;
   }
 
+  div.display {
+    height: 10vh;
+  }
   div.ball:hover {
-    transform: rotate(360deg);
+    background-color: yellow;
+  }
+  .number:hover {
+    font-weight: bold;
+  }
+  button.start:hover {
+    background-color: var(--ballBgc);
+  }
+  button.reset:hover {
+    background-color: #f88f53;
   }
 }
